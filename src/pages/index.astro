@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="tibs">
+	<main>
+		<a href="/">
+			<img src="https://static.tibs.gay/tibs.jpg" alt="tibs' avatar" class="avatar">
+			<h1>tibs</h1>
+		</a>
+		<div class="links">
+			<a href="https://github.com/TibiNonEst"><i class="fa-brands fa-github"></i></a>
+			<a href="https://blobfox.coffee/@tibs"><i class="fa-brands fa-mastodon"></i></a>
+			<a href="https://x.com/TibiNonEst"><i class="fa-brands fa-twitter"></i></a>
+			<a href="https://twitch.tv/tibinonest"><i class="fa-brands fa-twitch"></i></a>
+			<a href="https://en.pronouns.page/@tibs"><i class="fa-solid fa-transgender"></i></a>
+		</div>
+		<div class="card">
+			<p>i am a developer, systems administrator, and networking hobbyist</p>
+			<p>i mainly program in c++, go, and rust these days, but i am also well-versed in c, java, python, ruby, and typescript</p>
+			<p>i host my own <a href="https://git.tibs.gay">git</a>, <a href="https://ci.tibs.gay">ci</a>, and <a href="https://maven.tibs.gay">maven</a> for myself and my friends to use</p>
+			<p>i also co-run <a href="https://as215207.net">as215207</a> with <a href="https://henrikvt.com">henrik</a> for fun and education</p>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		color: var(--text);
+		background-color: var(--base);
+		font-family: sans-serif;
+		line-height: 1.5rem;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	h1 {
+		background-image: linear-gradient(to right, var(--mauve) , var(--lavender));
+		background-clip: text;
+		color: transparent;
+	}
+
+	a {
+		color: var(--lavender);
+		text-decoration: none;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+
+	.avatar {
+		width: 10rem;
+		height: 10rem;
+		border-radius: 5rem;
+		margin-bottom: .5rem;
+	}
+
+	.links {
+		color: var(--text);
+		font-size: 1.5rem;
+		margin-bottom: .5rem;
+	}
+
+	.card {
+		max-width: 50%;
+	}
+</style>

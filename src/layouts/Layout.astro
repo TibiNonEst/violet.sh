@@ -1,0 +1,63 @@
+---
+import "bootstrap/dist/css/bootstrap-reboot.css";
+import "@fortawesome/fontawesome-free/css/fontawesome.css";
+import "@fortawesome/fontawesome-free/css/brands.css";
+import "@fortawesome/fontawesome-free/css/solid.css";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{title}</title>
+    
+	<link rel="preconnect" href="https://static.tibs.gay">
+</head>
+
+<body>
+    <slot />
+</body>
+</html>
+
+<style>
+	html, body {
+		height: 100%;
+	}
+</style>
+
+<style is:global lang="scss">
+	@use "sass:color";
+	@use "sass:map";
+	@import "@catppuccin/palette/scss/catppuccin";
+
+	@mixin set_theme($map) {
+		@each $name, $color in $map {
+			--#{$name}: #{$color};
+			--#{$name}-dark: #{color.adjust($color, $lightness: -5%)};
+			--#{$name}-darker: #{color.adjust($color, $lightness: -10%)};
+		}
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			@include set_theme(map.get($palette, "macchiato"));
+
+			color-scheme: dark;
+		}
+	}
+	
+	@media (prefers-color-scheme: light) {
+		:root {
+			@include set_theme(map.get($palette, "latte"));
+
+			color-scheme: light;
+		}
+	}
+</style>
