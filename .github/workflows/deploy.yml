@@ -1,0 +1,42 @@
+name: Deploy when pushing on main
+
+on:
+  push:
+    branches:
+      - "main"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    name: "Deploy site"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build site
+        run: bun run build
+
+      - name: Upload files
+        uses: djang0dev/bunnynet-storage-deployer@v0.0.2
+        with:
+          upload: true
+          remove: true
+          storageName: ${{ secrets.BUNNY_STORAGE_NAME }}
+          storagePassword: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
+          destination: "tibs.gay/"
+          sourcePattern: "./dist/**/*.*"
+          apiKey: ${{ secrets.BUNNY_API_KEY }}
+          purgePullZone: true
+          pullZoneId: ${{ secrets.BUNNY_PULL_ZONE_ID }}
