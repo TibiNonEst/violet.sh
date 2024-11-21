@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Picture } from 'astro:assets';
 ---
 
 <Layout title="tibs">
 	<main>
 		<a href="/">
-			<img src="https://static.tibs.gay/tibs.jpg" alt="tibs' avatar" class="avatar">
+			<Picture src="https://static.tibs.gay/tibs.jpg" formats={["avif", "webp"]} alt="tibs' avatar" width="160" height="160" />
 			<h1>tibs</h1>
 		</a>
 		<div class="links">
@@ -53,9 +54,7 @@ import Layout from '../layouts/Layout.astro';
 		margin-bottom: 0;
 	}
 
-	.avatar {
-		width: 10rem;
-		height: 10rem;
+	img {
 		border-radius: 5rem;
 		margin-bottom: .5rem;
 	}
