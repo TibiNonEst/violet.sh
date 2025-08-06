@@ -5,6 +5,6 @@ export default defineConfig({
         inlineStylesheets: "always"
     },
     image: {
-        domains: [ "static.tibs.gay" ]
+        domains: [ "static.violet.sh" ]
     }
 });

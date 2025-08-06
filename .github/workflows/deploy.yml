@@ -35,7 +35,7 @@ jobs:
           remove: true
           storageName: ${{ secrets.BUNNY_STORAGE_NAME }}
           storagePassword: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
-          destination: "tibs.gay/"
+          destination: "violet.sh/"
           sourcePattern: "./dist/**/*.*"
           apiKey: ${{ secrets.BUNNY_API_KEY }}
           purgePullZone: true
